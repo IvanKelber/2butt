@@ -40,7 +40,6 @@ public class FlipSquare : ResetableObject
             flipping = true;
             float start = Time.time;
             float end = start + duration;
-            Debug.Log(start +", " + end);
             while(Time.time < end) {
                 if(Mathf.Abs(body.angularVelocity) <= angularVelocityCap) {
                     float torque = direction * torqueSpeed * Time.fixedDeltaTime;

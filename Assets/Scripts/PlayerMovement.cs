@@ -97,6 +97,7 @@ public class PlayerMovement : ResetableObject
     void Kick() {
         FlipSquare square = CheckForSquare();
         if(square) {
+            Debug.Log("kicking square");
             square.GetKicked(playerDirection);
         }
     }
@@ -121,8 +122,9 @@ public class PlayerMovement : ResetableObject
 
             if(hit) {
                 if(hit.collider != null) {
-                    Debug.Log("Found square");
-                    return hit.collider.gameObject.GetComponent<FlipSquare>() as FlipSquare;
+                    FlipSquare square = hit.collider.gameObject.GetComponent<FlipSquare>() as FlipSquare;
+                    Debug.Log("found square: " + square);
+                    return square;
                 }
             }
         }

@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 814675930}
   - component: {fileID: 814675929}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,7 +839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548775792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.85, y: 0.13, z: 0}
+  m_LocalPosition: {x: 5.69, y: 0.05, z: 0}
   m_LocalScale: {x: 0.53073776, y: 3.2239428, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 1960329827}
   - component: {fileID: 1960329826}
   - component: {fileID: 1960329829}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GreenButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,7 +1425,7 @@ GameObject:
   - component: {fileID: 1970721017}
   - component: {fileID: 1970721016}
   - component: {fileID: 1970721019}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}

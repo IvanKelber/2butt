@@ -17,10 +17,16 @@ public class ButtonPress : MonoBehaviour
 
 
     void OnTriggerEnter2D() {
+        Debug.Log("Entering");
+        onPress.Raise();
+    }
+
+    void OnTriggerStay2D() {
         onPress.Raise();
     }
 
     void OnTriggerExit2D() {
+        Debug.Log("Exiting");
         onUnpress.Raise();
     }
 }
