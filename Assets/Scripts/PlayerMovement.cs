@@ -89,15 +89,12 @@ public class PlayerMovement : ResetableObject
     void Jump() {
         if(onGround) {
             velocity.y += maxJumpVelocity;
-        } else { 
-            Debug.Log("Not on ground");
         }
     }
 
     void Kick() {
         FlipSquare square = CheckForSquare();
         if(square) {
-            Debug.Log("kicking square");
             square.GetKicked(playerDirection);
         }
     }
@@ -123,7 +120,6 @@ public class PlayerMovement : ResetableObject
             if(hit) {
                 if(hit.collider != null) {
                     FlipSquare square = hit.collider.gameObject.GetComponent<FlipSquare>() as FlipSquare;
-                    Debug.Log("found square: " + square);
                     return square;
                 }
             }
@@ -131,12 +127,19 @@ public class PlayerMovement : ResetableObject
         return null;
     }
 
-    void OnCollisionEnter2D () {
-		onGround = true;
+    void OnCollisionEnter2D (Collision2D collision) {
+        EvaluateCollision(collision);
 	}
 
-    void OnCollisionStay2D() {
-        onGround = true;
+    void OnCollisionStay2D(Collision2D collision) {
+        EvaluateCollision(collision);
+    }
+
+    void EvaluateCollision(Collision2D collision) {
+        for(int i = 0; i < collision.contactCount; i++) {
+            Vector3 normal = collision.GetContact(i).normal;
+            onGround |= normal.y >= 0.9f;
+        }
     }
 
     void OnDrawGizmos() {

@@ -17,7 +17,6 @@ public class ButtonPress : MonoBehaviour
 
 
     void OnTriggerEnter2D() {
-        Debug.Log("Entering");
         onPress.Raise();
     }
 
@@ -26,7 +25,6 @@ public class ButtonPress : MonoBehaviour
     }
 
     void OnTriggerExit2D() {
-        Debug.Log("Exiting");
         onUnpress.Raise();
     }
 }

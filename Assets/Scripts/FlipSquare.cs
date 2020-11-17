@@ -28,7 +28,11 @@ public class FlipSquare : ResetableObject
     }
 
     void FixedUpdate() {
-
+        if(body.velocity.y != 0) {
+            body.drag = 0;
+        } else {
+            body.drag = 5;
+        }
     }
 
     public void GetKicked(int direction) {
