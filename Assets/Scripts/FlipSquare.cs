@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlipSquare : MonoBehaviour
+public class FlipSquare : ResetableObject
 {
     public float torqueSpeed = 1000;
     public float angularVelocityCap = 100;

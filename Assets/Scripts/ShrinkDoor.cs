@@ -6,24 +6,46 @@ public class ShrinkDoor : MonoBehaviour
 {
 
     [Range(0, 5)]
-    public float shrinkDuration = 1;
+    public float totalShrinkDuration = 1;
+    public Vector3 endScale;
 
-    public void Shrink() {
-        StartCoroutine(DoShrink());
+    Vector3 startScale;
+    float startDistance;
+    Coroutine scalingCoroutine;
+    bool scaling = false;
+
+
+    void Start() {
+        startScale = transform.localScale;
+        startDistance = Vector3.Distance(endScale, startScale);
     }
 
-    IEnumerator DoShrink() {
+    public void ScaleToEnd() {
+        float duration = totalShrinkDuration * Vector3.Distance(transform.localScale, endScale)/startDistance;
+        if(scaling)
+            StopCoroutine(scalingCoroutine);
+        scalingCoroutine = StartCoroutine(Scale(duration, endScale));
+    }
+
+    public void ScaleToStart() {
+        float duration = totalShrinkDuration * Vector3.Distance(transform.localScale, startScale)/startDistance;
+        if(scaling)
+            StopCoroutine(scalingCoroutine);
+        scalingCoroutine = StartCoroutine(Scale(duration, startScale));
+    }
+
+    IEnumerator Scale(float duration,  Vector3 finalScale) {
+        scaling = true;
         float start = Time.time;
-        float end = start + shrinkDuration;
-        Vector3 originalScale = transform.localScale;
-        Vector3 goalScale = new Vector3(originalScale.x, 0, originalScale.z);
+        float end = start + duration;
+        Vector3 initialScale = transform.localScale;
         while(Time.time < end) {
-            // Shrink only on y axis;
-            float percentComplete = (end - Time.time)/(shrinkDuration);
-            percentComplete = Mathf.Clamp01(percentComplete);
-            transform.localScale = Vector3.Lerp(goalScale, originalScale, percentComplete);
+            float percentComplete = (end - Time.time)/duration;
+            transform.localScale = Vector3.Lerp(finalScale, initialScale, percentComplete);
             yield return null;
         }
-        Destroy(this.gameObject);
+        transform.localScale = finalScale;
+        scaling = false;
     }
+
 }
