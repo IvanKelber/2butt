@@ -70,6 +70,7 @@ public class PlayerMovement : ResetableObject
 			Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
         if(velocity.x != 0) {
             playerDirection = (int) Mathf.Sign(velocity.x);
+            transform.localScale = new Vector3(playerDirection, transform.localScale.y, transform.localScale.z);
         }
 
         if(desiredJump) {

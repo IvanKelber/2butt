@@ -32,11 +32,16 @@ public class MovePlatform : MonoBehaviour
         movementCoroutine = StartCoroutine(Move(duration, startPosition));
     }
 
+    void FixedUpdate() {
+
+    }
+
     IEnumerator Move(float duration,  Vector3 finalPosition) {
         moving = true;
         float start = Time.time;
         float end = start + duration;
         Vector3 initialPosition = transform.position;
+        WaitForFixedUpdate _wait = new WaitForFixedUpdate();
         while(Time.time < end) {
             float percentComplete = (end - Time.time)/duration;
             transform.position = Vector3.Lerp(finalPosition, initialPosition, percentComplete);

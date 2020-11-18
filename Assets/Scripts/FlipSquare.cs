@@ -16,17 +16,6 @@ public class FlipSquare : ResetableObject
         body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.L)) {
-            StartCoroutine(Flip(-1, flipDuration));
-        }
-        if(Input.GetKeyDown(KeyCode.J)) {
-            StartCoroutine(Flip(1, flipDuration));
-        }
-    }
-
     void FixedUpdate() {
         if(body.velocity.y != 0) {
             body.drag = 0;
