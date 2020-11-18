@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class LevelLoader : MonoBehaviour
         if(levelId < levelPrefabs.Count) {
             Destroy(currentLevel);
             currentLevel = Instantiate(levelPrefabs[levelId], Vector3.zero, Quaternion.identity);
+        } else {
+            SceneManager.LoadScene(0);
         }
     }
 
