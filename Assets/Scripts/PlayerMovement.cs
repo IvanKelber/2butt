@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask squareMask;
 
+    public AudioManager audioManager;
+
+    AudioSource audioSource;
 
     float maxJumpVelocity, minJumpVelocity;
 
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
         maxJumpVelocity = Mathf.Abs(Physics2D.gravity.y * timeToJumpApex);
         minJumpVelocity = Mathf.Sqrt(-2 * Physics2D.gravity.y * minJumpHeight);
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     void Update () {
@@ -89,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump() {
         if(onGround) {
+            audioManager.Play("Jump", audioSource);
             velocity.y += maxJumpVelocity;
         }
     }
