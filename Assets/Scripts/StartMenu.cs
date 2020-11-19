@@ -7,13 +7,17 @@ public class StartMenu : MonoBehaviour
 {
 
     public CanvasGroup instructions;
+    public GameObject levelLoader;
+    CanvasGroup startMenu;
 
     void Start() {
+        startMenu = GetComponent<CanvasGroup>();
         HideInstructions();
     }
 
     public void StartGame() {
-        SceneManager.LoadScene(1);
+        startMenu.alpha = 0;
+        levelLoader.SetActive(true);
     }
 
     public void ShowInstructions() {

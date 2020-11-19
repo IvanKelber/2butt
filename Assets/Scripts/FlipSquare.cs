@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlipSquare : ResetableObject
+public class FlipSquare : MonoBehaviour
 {
     public float torqueSpeed = 1000;
     public float angularVelocityCap = 100;
     public float flipDuration;
+    public AudioManager audioManager;
+    
+    AudioSource audioSource;
     Rigidbody2D body;
 
     bool flipping = false;
@@ -14,6 +17,7 @@ public class FlipSquare : ResetableObject
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate() {
@@ -30,6 +34,7 @@ public class FlipSquare : ResetableObject
 
     IEnumerator Flip(int direction, float duration) {
         if(!flipping) {
+            audioManager.Play("Kick", audioSource);
             flipping = true;
             float start = Time.time;
             float end = start + duration;

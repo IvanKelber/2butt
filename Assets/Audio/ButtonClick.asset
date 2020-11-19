@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21879648b897c4c8fbf28a4c76797e76, type: 3}
+  m_Name: ButtonClick
+  m_EditorClassIdentifier: 
+  Name: ButtonClick
+  clip: {fileID: 8300000, guid: 8ad9600ed1eaf45f28595dc285d9fdd2, type: 3}
+  volume: 1
+  modulation: 0

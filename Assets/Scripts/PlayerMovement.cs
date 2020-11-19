@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : ResetableObject
+public class PlayerMovement : MonoBehaviour
 {
     public float maxSpeed = 10;
     [Range(.05f, 10)]

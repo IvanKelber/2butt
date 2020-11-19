@@ -9,19 +9,25 @@ public class ButtonPress : MonoBehaviour
 
     [SerializeField]
     GameEvent onPress, onUnpress;
-    // Start is called before the first frame update
+
+    AudioManager audioManager;
+    AudioSource audioSource;
+
     void Start()
     {
         collider = GetComponent<BoxCollider2D>();
+        audioManager = transform.parent.GetComponent<FlipSquare>().audioManager;
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
 
     void OnTriggerEnter2D() {
         onPress.Raise();
+        audioManager.Play("ButtonClick", audioSource);
     }
 
     void OnTriggerStay2D() {
-        onPress.Raise();
+        // onPress.Raise();
     }
 
     void OnTriggerExit2D() {

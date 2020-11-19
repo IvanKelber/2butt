@@ -8,14 +8,15 @@ public class LevelLoader : MonoBehaviour
 
     public List<GameObject> levelPrefabs;
 
-    private Fade fade;
+    public CanvasGroup canvas;
+
+    public Fade fade;
     int levelId = 0;
     GameObject currentLevel;
     // Start is called before the first frame update
     void Start()
     {
         currentLevel = Instantiate(levelPrefabs[0], Vector3.zero, Quaternion.identity);
-        fade = GetComponent<Fade>() as Fade;
     }
 
     public void LoadNextLevel() {
@@ -32,8 +33,12 @@ public class LevelLoader : MonoBehaviour
             Debug.Log("fading out");
             yield return StartCoroutine(fade.FadeOut());
         }
-        SceneManager.LoadScene(0);
-        
+        Destroy(currentLevel);
+        canvas.alpha = 1;
+        if(fade != null) {
+            Debug.Log("Fading in");
+            yield return StartCoroutine(fade.FadeInInverted());
+        }
     }
 
     IEnumerator LoadLevel(int levelId) {
@@ -47,6 +52,10 @@ public class LevelLoader : MonoBehaviour
             Debug.Log("Fading in");
             yield return StartCoroutine(fade.FadeInInverted());
         }
+    }
+
+    public void Reset() {
+        StartCoroutine(LoadLevel(levelId));
     }
 
 }
