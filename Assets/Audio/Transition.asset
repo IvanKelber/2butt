@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6059160cfbc914f038ced2cfdd5aeab0, type: 3}
-  m_Name: PlatformFall
+  m_Script: {fileID: 11500000, guid: 21879648b897c4c8fbf28a4c76797e76, type: 3}
+  m_Name: Transition
   m_EditorClassIdentifier: 
-  Name: Fall
-  clip: {fileID: 8300000, guid: dc2dbb04d96ba4e799de62b1cbc808cc, type: 3}
-  volume: 0.1
+  Name: Transition
+  clip: {fileID: 8300000, guid: a87bfe2826e0e44e78232a8452f45fb3, type: 3}
+  volume: 1
+  modulation: 0

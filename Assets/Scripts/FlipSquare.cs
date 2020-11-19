@@ -34,8 +34,8 @@ public class FlipSquare : MonoBehaviour
 
     IEnumerator Flip(int direction, float duration) {
         if(!flipping) {
-            audioManager.Play("Kick", audioSource);
             flipping = true;
+            audioManager.Play("Kick", audioSource);
             float start = Time.time;
             float end = start + duration;
             while(Time.time < end) {

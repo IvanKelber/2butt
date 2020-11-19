@@ -27,7 +27,7 @@ public class ButtonPress : MonoBehaviour
     }
 
     void OnTriggerStay2D() {
-        // onPress.Raise();
+        onPress.Raise();
     }
 
     void OnTriggerExit2D() {

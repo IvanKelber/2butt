@@ -159,6 +159,7 @@ MonoBehaviour:
   - {fileID: 3881434535556030495, guid: 5268651bc610a486796b901e6695a5c9, type: 3}
   - {fileID: 8696378935386252111, guid: 01a3056ab20b045d7bd568339f23f1c0, type: 3}
   canvas: {fileID: 1902855944}
+  audioManager: {fileID: 11400000, guid: 09dd383a4b0434e0297136283c1b9158, type: 2}
   fade: {fileID: 519420034}
 --- !u!4 &82500612
 Transform:
@@ -424,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1596,7 +1597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2248,7 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Rise
   clip: {fileID: 8300000, guid: 1e4120fb2ee774e7f9ec3c1c7e0f0a50, type: 3}
-  volume: 0.25
+  volume: 0.1
