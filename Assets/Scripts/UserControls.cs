@@ -13,5 +13,10 @@ public class UserControls : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R)) {
             reset.Raise();
         }
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
     }
+
+
 }

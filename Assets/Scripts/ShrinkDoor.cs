@@ -12,7 +12,7 @@ public class ShrinkDoor : MonoBehaviour
     Vector3 startScale;
     float startDistance;
     Coroutine scalingCoroutine;
-    bool scaling = false;
+    bool scalingUp, scalingDown;
 
 
     void Start() {
@@ -22,20 +22,26 @@ public class ShrinkDoor : MonoBehaviour
 
     public void ScaleToEnd() {
         float duration = totalShrinkDuration * Vector3.Distance(transform.localScale, endScale)/startDistance;
-        if(scaling)
+        if(scalingDown)
+            return;
+        if(scalingUp)
             StopCoroutine(scalingCoroutine);
+        scalingDown = true;
         scalingCoroutine = StartCoroutine(Scale(duration, endScale));
     }
 
     public void ScaleToStart() {
         float duration = totalShrinkDuration * Vector3.Distance(transform.localScale, startScale)/startDistance;
-        if(scaling)
+        if(scalingUp) {
+            return;
+        }
+        if(scalingDown)
             StopCoroutine(scalingCoroutine);
+        scalingUp = true;
         scalingCoroutine = StartCoroutine(Scale(duration, startScale));
     }
 
     IEnumerator Scale(float duration,  Vector3 finalScale) {
-        scaling = true;
         float start = Time.time;
         float end = start + duration;
         Vector3 initialScale = transform.localScale;
@@ -45,7 +51,8 @@ public class ShrinkDoor : MonoBehaviour
             yield return null;
         }
         transform.localScale = finalScale;
-        scaling = false;
+        scalingUp = false;
+        scalingDown = false;
     }
 
 }

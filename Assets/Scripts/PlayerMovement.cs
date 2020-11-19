@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
         desiredKick |= Input.GetKeyDown(KeyCode.Space);
         if(desiredKick) {
-            Debug.Log("Desired Kick");
             Kick();
             desiredKick = false;
         }
@@ -120,7 +119,6 @@ public class PlayerMovement : MonoBehaviour
         for(int i = 0; i < 10; i++) {
             Vector2 rayOrigin = (playerDirection == 1 ? rightBottom : leftBottom) + Vector2.up * i * (bounds.size.x/10);
 
-            Debug.DrawRay(rayOrigin, Vector2.right * playerDirection * kickDistance, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * playerDirection, kickDistance, squareMask);
 
             if(hit) {
