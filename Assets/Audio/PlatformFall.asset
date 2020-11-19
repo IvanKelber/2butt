@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fall
   clip: {fileID: 8300000, guid: dc2dbb04d96ba4e799de62b1cbc808cc, type: 3}
-  volume: 0.1
+  volume: 0.175

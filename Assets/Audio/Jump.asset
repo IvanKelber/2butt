@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Jump
   clip: {fileID: 8300000, guid: 65d573e3490ac41828c66067e96ff903, type: 3}
-  volume: 1
+  volume: 0.193
   modulation: 0
